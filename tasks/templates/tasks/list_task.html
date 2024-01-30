@@ -1,0 +1,14 @@
+<!-- tasks/templates/tasks/task_list.html -->
+
+<h1>Task List</h1>
+<ul>
+  {% for task in tasks %}
+    <li>
+      {{ task.title }} - {{ task.description }} - {{ task.due_date }} - {% if task.completed %}Completed{% else %}Pending{% endif %}
+      <a href="{% url 'update_task' pk=task.pk %}">Update</a>
+      <a href="{% url 'delete_task' pk=task.pk %}">Delete</a>
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_task' %}">Create New Task</a>
+<
